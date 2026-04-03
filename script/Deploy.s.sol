@@ -48,23 +48,6 @@ contract DeployDiamond is Script {
         MarketplaceFacet marketplaceFacet = new MarketplaceFacet();
         console.log("MarketplaceFacet deployed:", address(marketplaceFacet));
 
-        // ========== ADD FACETS TO DIAMOND ==========
-        // Note: In production, this would go through Multisig proposal
-        // For learning, we call diamondCut directly
-
-        // Example: Add StakingFacet
-        // IDiamondCut.FacetCut[] memory cuts = new IDiamondCut.FacetCut[](1);
-        // cuts[0] = IDiamondCut.FacetCut({
-        //     facetAddress: address(stakingFacet),
-        //     action: IDiamondCut.FacetCutAction.Add,
-        //     functionSelectors: [
-        //         StakingFacet.stake.selector,
-        //         StakingFacet.unstake.selector,
-        //         StakingFacet.claimRewards.selector
-        //     ]
-        // });
-        // DiamondCutFacet(address(diamond)).diamondCut(cuts, address(0), "");
-
         vm.stopBroadcast();
 
         // ========== OUTPUT DEPLOYMENT INFO ==========
